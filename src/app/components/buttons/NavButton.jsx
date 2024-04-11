@@ -1,9 +1,15 @@
+import { useAppSelector } from "@/utils/store";
+import { useEffect, useState } from "react";
+
 
 function NavButton({title, cbFun}) {
+
+  const route = useAppSelector(state => state?.uiReducer?.activeLink);
+
   return (
     <>
       <button
-        className="w-full p-3 border shadow-lg shadow-black dark:shadow-emerald-900"
+        className={`w-full ${route === title && "text-blue-500"}`}
         onClick={cbFun}
       >
         {title}

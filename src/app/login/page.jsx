@@ -9,7 +9,7 @@ function page() {
 
   return (
     <div id="contain" className="w-full h-full slideDown">
-
+      
     </div>
   );
 }

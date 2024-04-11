@@ -1,0 +1,16 @@
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+/* Styling for the active link */
+.active {
+    color: blue;
+}

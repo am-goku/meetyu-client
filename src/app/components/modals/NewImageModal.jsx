@@ -37,16 +37,9 @@ export default function NewImageModal() {
           aria-describedby="keep-mounted-modal-description"
         >
           <Box sx={style}>
-            <Typography
-              id="keep-mounted-modal-title"
-              variant="h6"
-              component="h2"
-            >
-              Text in a modal
-            </Typography>
-            <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            <div className="bg-emerald-300">
+                
+            </div>
           </Box>
         </Modal>
       </div>

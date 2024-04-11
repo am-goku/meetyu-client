@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  server: {
+  serverRuntimeConfig: {
     port: 3021,
   },
   images: {
-    domains: ["as1.ftcdn.net"],
+    domains: ["as1.ftcdn.net"]
   },
 };
 
