@@ -14,13 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-screen h-screen">
+        {/* <div className="w-screen h-screen"> */}
           <ReduxProvider>
             <UiProvider>
               {children}
             </UiProvider>
           </ReduxProvider>
-        </div>
+        {/* </div> */}
       </body>
     </html>
   );

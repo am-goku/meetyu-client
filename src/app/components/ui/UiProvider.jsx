@@ -50,10 +50,13 @@ function UiProvider({ children }) {
 
   return (
     <div id="ui-provider" className="flex">
-      <div className=" bg-emerald-100 dark:bg-black w-screen h-screen  text-black dark:text-white overflow-auto no-scrollbar">
+      <div className="p-3 flex flex-col gap-2 bg-emerald-100 dark:bg-black w-full h-screen text-black dark:text-white no-scrollbar">
         <NavBar />
-        <div className="p-3 m-3">{children}</div>
+        {/* <div className="flex-1"> */}
+          {children}
+        {/* </div> */}
       </div>
+
     </div>
   );
 }

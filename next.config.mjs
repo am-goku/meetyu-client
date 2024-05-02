@@ -4,7 +4,7 @@ const nextConfig = {
     port: 3021,
   },
   images: {
-    domains: ["as1.ftcdn.net"]
+    domains: ["as1.ftcdn.net", "images.unsplash.com"],
   },
 };
 
