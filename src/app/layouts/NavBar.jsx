@@ -25,9 +25,9 @@ function NavBar() {
 
   return (
     <>
-      <div className="w-full h-24 text-black dark:text-white flex items-center p-5">
+      <div className="w-full h-20 text-black dark:text-white flex items-center p-5">
         <div className="headline flex gap-5">
-          <h1 className="font-bold text-4xl">MeetYu</h1>
+          <h1 className="font-bold text-5xl font-satisfy">MeetYu</h1>
           <Theme />
         </div>
 

@@ -18,6 +18,10 @@ module.exports = {
           DEFAULT: '#333333',
         },
       },
+      fontFamily: {
+        'satisfy': ['Satisfy', 'cursive'],
+        'sairaConte': ['SairaCondensed']
+      }
     },
   },
   plugins: [],
