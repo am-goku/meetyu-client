@@ -1,9 +1,7 @@
 "use client";
 
-import NavBar from "@/app/layouts/NavBar";
 import { useAppSelector } from "@/utils/store";
 import React, { useEffect } from "react";
-import Loader from "../loaders/loader";
 import { useDispatch } from "react-redux";
 import { changeLoadingStatus, changeScreenSize } from "@/utils/features/uiSlice";
 
@@ -51,12 +49,8 @@ function UiProvider({ children }) {
   return (
     <div id="ui-provider" className="flex">
       <div className="p-3 flex flex-col gap-2 bg-emerald-100 dark:bg-black w-full h-screen text-black dark:text-white no-scrollbar">
-        <NavBar />
-        {/* <div className="flex-1"> */}
           {children}
-        {/* </div> */}
       </div>
-
     </div>
   );
 }

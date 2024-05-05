@@ -1,8 +1,8 @@
 "use client"
 
 import React from 'react'
-import UserList from '../components/chat/users/UserList'
-import ChatBox from '../components/chat/message/ChatBox'
+import UserList from '../../components/chat/users/UserList'
+import ChatBox from '../../components/chat/message/ChatBox'
 
 
 

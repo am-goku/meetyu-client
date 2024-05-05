@@ -1,18 +1,13 @@
 "use client"
 
-import { logIn, logOut } from "@/utils/features/authSlice";
-import { useAppSelector } from "@/utils/store";
-import { useDispatch } from "react-redux";
+import { redirect } from "next/navigation"
 
 export default function Home() {
-  
-
-  return ( 
+  return (
     <>
-      <div>
-        hello
-
-      </div>
+    
+      
+    
     </>
-  );
+  )
 }

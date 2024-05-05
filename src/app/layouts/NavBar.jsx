@@ -36,11 +36,11 @@ function NavBar() {
             <NavButton title="Home" />
           </Link>
 
-          <Link id="navLink" href="/explore" onClick={() => changeLink("Explore")}>
+          <Link id="navLink" href="/c/explore" onClick={() => changeLink("Explore")}>
             <NavButton title="Explore" />
           </Link>
 
-          <Link id="navLink" href="/chat" onClick={() => changeLink("Chat")}>
+          <Link id="navLink" href="/c/chat" onClick={() => changeLink("Chat")}>
             <NavButton title="Chat" />
           </Link>
 

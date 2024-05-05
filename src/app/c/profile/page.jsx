@@ -3,7 +3,6 @@
 import Image from "next/image";
 import React from "react";
 import "@fontsource/roboto";
-import ImageSection from "../components/profile/ImageSection";
 
 function page() {
   const profileError = () => {
@@ -32,7 +31,6 @@ function page() {
           <span>gokulkrishna@email.com</span>
         </div>
 
-        {/* <ImageSection /> */}
       </div>
     </>
   );
