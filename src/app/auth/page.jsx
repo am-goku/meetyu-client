@@ -2,7 +2,8 @@
 import React from "react"
 import "./style.css"
 import Login from '../components/auth/Login';
-import Signup from "../components/auth/Signup";
+
+const Signup = React.lazy(() => import("../components/auth/Signup"))
 
 
 function page() {

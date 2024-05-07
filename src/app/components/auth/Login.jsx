@@ -5,7 +5,7 @@ function Login({setSignup}) {
   return (
       <div className="container flex-1 anim">
           <div className="heading">Sign In</div>
-          <div action="" className="form">
+          <div className="form">
               <input required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
               <input required="" className="input" type="password" name="password" id="password" placeholder="Password" />
               <span className="forgot-password"><a href="#">Forgot Password ?</a></span>

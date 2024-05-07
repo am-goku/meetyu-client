@@ -27,7 +27,7 @@ function Signup({setSignup, handleSignup}) {
     return (
         <div className="container flex-1 anim">
             <div className="heading">Sign Up</div>
-            <div action="" className="form">
+            <div className="form">
                 <input  onChange={(e) => setName(e.target.value)} required="" className="input" type="text" name="name" id="name" placeholder="Full Name" />
                 <input  onChange={(e) => setUsername(e.target.value)} required="" className="input" type="text" name="username" id="username" placeholder="Userame" />
                 <input  onChange={(e) => setEmail(e.target.value)} required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
