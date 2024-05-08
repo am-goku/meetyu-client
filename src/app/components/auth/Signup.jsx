@@ -1,5 +1,4 @@
 import React from 'react'
-import "./styles.css"
 
 function Signup({setSignup, handleSignup}) {
 
@@ -16,11 +15,6 @@ function Signup({setSignup, handleSignup}) {
         if(!name || !email || !username || !password) return setError("All fields must be provided");
         handleSignup({name, email, username, password})
     }
-
-
-
-
-
 
 
 

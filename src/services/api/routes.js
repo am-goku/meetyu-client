@@ -1,32 +1,32 @@
 export const auth_routes = {
-    login: "/login",
-    refresh: "/refresh-token",
-    email_verification: "/:email/verify/:token"
+    login: "/user/login",
+    refresh: "/auth/refresh-token",
+    email_verification: "/auth/:email/verify/:token"
 }
 
 export const user_routes = {
-    register: "/register",
+    register: "/user/register",
 
 }
 
 export const chat_routes = {
     //chat room
-    create: '/create-chatroom',
-    fetch: '/get-chatrooms',
-    delete: '/delete-chatroom',
+    create: '/chat/create-chatroom',
+    fetch: '/chat/get-chatrooms',
+    delete: '/chat/delete-chatroom',
     update: {
         //admin
-        admin: '/add-admin',
-        remove_admin: '/remove-admin',
+        admin: '/chat/add-admin',
+        remove_admin: '/chat/remove-admin',
 
         //room
-        room: (roomId) => `/update-chatrooms/${roomId}`,
+        room: (roomId) => `/chat/update-chatrooms/${roomId}`,
 
         //user
-        add_user: (roomId) => `/add-users/${roomId}`,
-        remove_user: (roomId) => `/remove-users/${roomId}`,
+        add_user: (roomId) => `/chat/add-users/${roomId}`,
+        remove_user: (roomId) => `/chat/remove-users/${roomId}`,
 
         //owner
-        change_owner: (roomId, adminId) => `/change-owner/${roomId}/${adminId}`
+        change_owner: (roomId, adminId) => `/chat/change-owner/${roomId}/${adminId}`
     }
 }

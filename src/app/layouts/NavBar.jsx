@@ -8,6 +8,7 @@ import NavButton from "../components/buttons/NavButton";
 import Link from "next/link";
 import { Avatar } from "@mui/material";
 import Theme from "../components/toggles/Theme";
+import { logOut } from "@/utils/features/authSlice";
 
 function NavBar() {
 
@@ -19,13 +20,17 @@ function NavBar() {
     dispatch(changeActiveLink(route))
   }
 
+  const user = useAppSelector(state => state?.authReducer?.user)
 
 
+  const logoutHandler = () => {
+    dispatch(logOut())
+  }
   
 
   return (
     <>
-      <div className="w-full h-20 text-black dark:text-white flex items-center p-5">
+      {user && <div className="w-full h-20 text-black dark:text-white flex items-center p-5">
         <div className="headline flex gap-5">
           <h1 className="font-bold text-5xl font-satisfy">MeetYu</h1>
           <Theme />
@@ -59,8 +64,10 @@ function NavBar() {
               <NavButton title="Profile" />
             </Link>
           </div>
+
+            <span onClick={logoutHandler}><NavButton title="Logout" /></span>
         </div>}
-      </div>
+      </div>}
     </>
   );
 }

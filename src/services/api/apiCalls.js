@@ -1,7 +1,5 @@
 import instance from "./axiosInstance";
 
-
-
 const apiCall = async (method, url, data) => {
     try {
         
@@ -28,7 +26,7 @@ const apiCall = async (method, url, data) => {
         if(response) return Promise.resolve(response.data);
 
     } catch (error) {
-        return Promise.reject(error?.data);
+        return Promise.reject(error?.response.data);
     }
 }
 

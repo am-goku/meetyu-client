@@ -2,19 +2,38 @@
 import React from "react"
 import "./style.css"
 import Login from '../components/auth/Login';
+import { user_login } from "@/services/api/methods/auth";
+import { useDispatch } from "react-redux";
+import { logIn } from "@/utils/features/authSlice";
+import { useAppSelector } from "@/utils/store";
+import { redirect } from "next/navigation";
 
 const Signup = React.lazy(() => import("../components/auth/Signup"))
 
 
 function page() {
 
-  const [signup, setSignup] = React.useState(false)
+  const dispatch = useDispatch();
+
+  const [signup, setSignup] = React.useState(false);
+
+  const user = useAppSelector(state => state?.authReducer.user);
+
+  React.useEffect(() => {
+    if(user){
+      redirect('/c/chat')
+    }
+  }, [user])
 
 
   const handleSignup = (data) => {
-    console.log('====================================');
-    console.log("user data", data);
-    console.log('====================================');
+    
+  }
+
+  const handleSingin = (data) => {
+    user_login(data).then((res) => {
+      dispatch(logIn(res.user))
+    }).catch((err) => console.log(err))
   }
 
 
@@ -25,12 +44,12 @@ function page() {
           signup ?
             <>
               <Signup setSignup={setSignup} handleSignup={handleSignup} />
-              <div className='icnContainer mainContainer hidden md:flex' />
+              <div className='icnContainer mainContainer hidden md:flex filter dark:invert dark:border dark:border-white' />
             </>
             :
             <>
-              <div className='icnContainer mainContainer hidden md:flex' />
-              <Login setSignup={setSignup} />
+              <div className='icnContainer mainContainer hidden md:flex filter dark:invert dark:border dark:border-white' />
+              <Login setSignup={setSignup} handleSignin={handleSingin} />
             </>
         }
       </div>

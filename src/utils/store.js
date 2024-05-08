@@ -1,15 +1,34 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { applyMiddleware, combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import authReducer from "./features/authSlice";
 import uiReducer from "./features/uiSlice";
 import { useSelector } from "react-redux";
+import storage from "redux-persist/lib/storage";
+import persistReducer from "redux-persist/es/persistReducer";
+import persistStore from "redux-persist/es/persistStore";
 
-export const store = configureStore({
-    reducer: {
-        authReducer,
-        uiReducer
-    },
-});
+const rootReducers = combineReducers({
+    authReducer,
+    uiReducer
+})
+
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducers)
 
 
-export const useAppSelector = useSelector
+const store = configureStore({
+    reducer: persistedReducer,
+    applyMiddleware: [],
+})
+
+
+const persistor = persistStore(store);
+
+
+
+export { store, persistor };
+export const useAppSelector = useSelector;
