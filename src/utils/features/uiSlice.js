@@ -3,7 +3,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 let theme = "light";
 if(typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-    theme = "light"; //TODO: Have to change it to "dark" later.
+    theme = "dark";
 }
 
 let route;

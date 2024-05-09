@@ -4,7 +4,7 @@ const nextConfig = {
     port: 3021,
   },
   images: {
-    domains: ["as1.ftcdn.net", "images.unsplash.com"],
+    domains: ["as1.ftcdn.net", "images.unsplash.com", "expertphotography.b-cdn.net", "i.pinimg.com"],
   },
   env: {
     SERVER_URL: process.env.SERVER_URL,
