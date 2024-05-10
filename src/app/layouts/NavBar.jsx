@@ -53,7 +53,7 @@ function NavBar() {
             <span className="w-10 h-10">
               <Avatar
                 alt="Gokul Krishna"
-                src="/static/images/avatar/1.jpg"
+                src=""
               />
             </span>
             <Link

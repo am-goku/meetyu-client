@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState} from 'react'
+import React from 'react'
 
 import styles from './styles/SingleUser.module.css'
 
@@ -15,12 +15,7 @@ const style = {
 
 function SingleUser({user, setSelectedUser}) {
 
-  React.useEffect(() => {
-    
-    console.log(user);
 
-  }, [])
-  
 
   return (
     <div onClick={()=>setSelectedUser(user)} className='bg-slate-200 dark:bg-blue-950 w-full flex items-center p-2 gap-3 rounded border border-gray-500 cursor-pointer'>

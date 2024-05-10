@@ -17,7 +17,7 @@ function RejectBtn({theme}) {
                 viewBox="0 0 27.965 27.965"
                 xmlSpace="preserve"
             >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                 <g
                     id="SVGRepo_tracerCarrier"
                     strokeLinecap="round"
@@ -53,11 +53,11 @@ function AddBtn({theme}) {
                 preserveAspectRatio="xMidYMid meet"
                 fill={theme=='light'?"#00000":"#ffffff"}
             >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                 <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                 ></g>
                 <g id="SVGRepo_iconCarrier">
                     <path

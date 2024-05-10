@@ -26,7 +26,7 @@ function Signup({setSignup, handleSignup}) {
                 <input  onChange={(e) => setUsername(e.target.value)} required="" className="input" type="text" name="username" id="username" placeholder="Userame" />
                 <input  onChange={(e) => setEmail(e.target.value)} required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
                 <input  onChange={(e) => setPassword(e.target.value)} required="" className="input" type="password" name="password" id="password" placeholder="Password" />
-                <span className="forgot-password"><a onClick={() => setSignup(false)}>Have an Account ?</a></span>
+                <span className="forgot-password cursor-pointer"><a onClick={() => setSignup(false)}>Have an Account ?</a></span>
                 {error && <span className="forgot-password text-red-500"><p>{error}</p></span>}
                 <input onClick={validate} className="login-button" type='button' value="Sign Up" />
 

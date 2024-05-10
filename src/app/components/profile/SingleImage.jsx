@@ -13,6 +13,8 @@ function SingleImage() {
           objectPosition="center"
           draggable={false}
           className='w-full h-full'
+          alt='Error loading'
+          priority="high"
         />
       </div>
     </>

@@ -7,8 +7,8 @@ const nextConfig = {
     domains: ["as1.ftcdn.net", "images.unsplash.com", "expertphotography.b-cdn.net", "i.pinimg.com"],
   },
   env: {
-    SERVER_URL: process.env.SERVER_URL,
     SOCKET_URL: process.env.SOCKET_URL,
+    SERVER_URL: process.env.SERVER_URL,
   }
 };
 

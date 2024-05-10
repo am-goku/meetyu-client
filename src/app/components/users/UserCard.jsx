@@ -15,7 +15,7 @@ function UserCard() {
     <div className="flex justify-center items-center border p-3">
           <div className="flex flex-col gap-10 select-none">
             <div className="p-3 relative w-64 h-96">
-              <Image src={"https://expertphotography.b-cdn.net/wp-content/uploads/2019/04/female-face-girl-posing-outdoors-in-natural-light.jpg"} fill={true} />
+              <Image alt='Error loading' priority='high' src={"https://expertphotography.b-cdn.net/wp-content/uploads/2019/04/female-face-girl-posing-outdoors-in-natural-light.jpg"} fill={true} sizes='100, 100' />
             </div>
             <ExploreOptions />
           </div>
@@ -32,10 +32,10 @@ function UserCard() {
               </div>
             </div>
             <div className="w-full p-5 overflow-auto flex gap-3 items-center">
-              <Image src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} />
-              <Image src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} />
-              <Image src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} />
-              <Image src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} />
+              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
+              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
+              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
+              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
             </div>
           </div>
         </div>

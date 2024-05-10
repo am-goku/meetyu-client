@@ -22,7 +22,7 @@ function Login({setSignup, handleSignin}) {
               <input onChange={(e) => setEmail(e.target.value)} required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
               <input onChange={(e) => setPassword(e.target.value)} required="" className="input" type="password" name="password" id="password" placeholder="Password" />
               <span className="forgot-password"><a href="#">Forgot Password ?</a></span>
-              <span className="forgot-password"><a onClick={() => setSignup(true)}>New here ?</a></span>
+              <span className="forgot-password cursor-pointer"><a onClick={() => setSignup(true)}>New here ?</a></span>
               {error && <span className="forgot-password text-red-500"><p>{error}</p></span>}
               <input className="login-button" type='button' value="Sign In" onClick={validate} />
 

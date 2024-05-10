@@ -22,6 +22,7 @@ function page() {
             draggable={false}
             alt="Error loading"
             onError={profileError}
+            priority="high"
           />
         </div>
         <div className="max-w-full h-fit flex flex-col ">

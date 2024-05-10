@@ -3,6 +3,7 @@
 import React from 'react'
 import UserList from '../../components/chat/users/UserList'
 import ChatBox from '../../components/chat/message/ChatBox'
+import { useSocket } from '@/context/socket/SocketProvider'
 
 
 
@@ -45,9 +46,13 @@ function Chat() {
 
   const [selectedUser, setSelectedUser] = React.useState(null)
 
+  const socket = useSocket()
+
   const switchUser = (usr) => {
     setSelectedUser(usr)
   }
+
+
 
   return (
     <>

@@ -3,6 +3,7 @@ import "./globals.css";
 import { ReduxProvider } from "@/utils/provider";
 import UiProvider from "./components/ui/UiProvider";
 import NavBar from "./layouts/NavBar";
+import SocketProvider from "@/context/socket/SocketProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,12 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-          <ReduxProvider>
-            <UiProvider>
+        <ReduxProvider>
+          <UiProvider>
+            <SocketProvider>
               <NavBar />
               {children}
-            </UiProvider>
-          </ReduxProvider>
+            </SocketProvider>
+          </UiProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
