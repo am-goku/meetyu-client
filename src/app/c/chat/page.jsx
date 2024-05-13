@@ -52,6 +52,12 @@ function Chat() {
     setSelectedUser(usr)
   }
 
+  React.useEffect(() => {
+    socket?.on('blocked', () => {
+      console.log("Block event excecuted")
+    })
+  })
+
 
 
   return (

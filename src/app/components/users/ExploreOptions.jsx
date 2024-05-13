@@ -1,5 +1,6 @@
 "use client"
 
+import { send_request } from '@/services/api/methods/user';
 import { useAppSelector } from '@/utils/store';
 import React from 'react'
 
@@ -7,7 +8,7 @@ import React from 'react'
 function RejectBtn({theme}) {
 
     return (
-        <div className="w-20 aspect-square choiseBtn p-3 justify-center items-center">
+        <div className="w-20 aspect-square choiseBtn p-3 justify-center items-center cursor-pointer">
             <svg
                 fill={theme=='light'?"#00000":"#ffffff"}
                 version="1.1"
@@ -39,10 +40,18 @@ function RejectBtn({theme}) {
 
 
 
-function AddBtn({theme}) {
+function AddBtn({theme, userId}) {
     
+    const sendRequest = () => {
+        send_request(userId).then((data) => {
+            console.log(data)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
     return (
-        <div className="w-20 aspect-square choiseBtn p-3">
+        <div onClick={sendRequest} className="w-20 aspect-square choiseBtn p-3 cursor-pointer">
             <svg
                 viewBox="0 0 64 64"
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,14 +86,14 @@ function AddBtn({theme}) {
 
 
 
-function ExploreOptions() {
+function ExploreOptions({userId}) {
     const theme = useAppSelector((state) => state?.uiReducer?.theme);
 
     return (
         <div className="choise flex gap-20 ">
             <RejectBtn theme={theme} />
 
-            <AddBtn theme={theme} />
+            <AddBtn userId={userId} theme={theme} />
         </div>
     )
 }

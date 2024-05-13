@@ -7,6 +7,14 @@ export const auth_routes = {
 export const user_routes = {
     register: "/user/register",
 
+    suggesion: "/user/fetch-suggesions",
+
+    send_req: (id) => `/user/connection/request/send/${id}`,
+    del_req: (id) => `/user/connection/request/delete/${id}`,
+    acc_req: (id) => `/user/connection/request/accept/${id}`,
+    rem_frnd: (id) => `/user/connection/friend/remove/${id}`,
+
+    get_req: '/user/connection/request/fetch'
 }
 
 export const chat_routes = {
