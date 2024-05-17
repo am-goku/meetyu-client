@@ -5,8 +5,6 @@ import UserList from '../../components/chat/users/UserList'
 import ChatBox from '../../components/chat/message/ChatBox'
 import { useSocket } from '@/context/socket/SocketProvider'
 
-
-
 const users = [
   {
     name: 'John Smith',
@@ -41,7 +39,6 @@ const users = [
 
 
 
-
 function Chat() {
 
   const [selectedUser, setSelectedUser] = React.useState(null)
@@ -59,18 +56,28 @@ function Chat() {
   })
 
 
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+  };
+
 
   return (
     <>
-        <div className="p-2 h-full overflow-hidden flex gap-5">
+      <div className="p-2 h-full overflow-hidden flex gap-5">
 
-            <UserList users={users} setSelectedUser={switchUser} />
-
-            <ChatBox user={selectedUser} />
-
+        <div className='relative'>
+          <UserList users={users} setSelectedUser={switchUser} isOpen={isOpen} toggleDrawer={toggleDrawer} />
         </div>
+
+        <ChatBox user={selectedUser} />
+
+      </div>
     </>
   )
 }
 
 export default Chat
+
+

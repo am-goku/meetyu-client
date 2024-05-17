@@ -1,0 +1,18 @@
+.newMessageContainer {
+    animation: floatIn 700ms ease-in;
+}
+
+.messageContainer {
+    animation: floatIn 700ms ease-in;
+}
+
+
+@keyframes floatIn {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
