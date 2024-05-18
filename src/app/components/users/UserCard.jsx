@@ -36,12 +36,6 @@ function UserCard({ user }) {
             </Typography>
           </div>
         </div>
-        {/* <div className="w-full p-5 overflow-auto flex gap-3 items-center">
-              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
-              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
-              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
-              <Image alt='Error loading' src={"https://i.pinimg.com/736x/5c/09/c4/5c09c4dc82dc441dfb26975fe8dc1634.jpg"} width={200} height={200} priority="high" />
-            </div> */}
       </div>
     </div>
   )

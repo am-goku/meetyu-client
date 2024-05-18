@@ -14,14 +14,15 @@ export const user_routes = {
     acc_req: (id) => `/user/connection/request/accept/${id}`,
     rem_frnd: (id) => `/user/connection/friend/remove/${id}`,
 
-    get_req: '/user/connection/request/fetch'
+    get_req: '/user/connection/request/fetch',
+    get_friends: '/user/connection/friend/fetch',
 }
 
 export const chat_routes = {
     //chat room
     create: '/chat/create-chatroom',
     fetch: '/chat/get-chatrooms',
-    delete: '/chat/delete-chatroom',
+    delete: (roomId) => `/chat/delete-chatroom/${roomId}`,
     update: {
         //admin
         admin: '/chat/add-admin',

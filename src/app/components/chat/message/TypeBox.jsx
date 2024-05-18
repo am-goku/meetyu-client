@@ -3,9 +3,7 @@
 import React from 'react'
 
 import "./styles/TypeBox.css"
-import { Avatar, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material'
-import { Logout, PersonAdd, Settings } from '@mui/icons-material';
-
+import { Menu, MenuItem } from '@mui/material'
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
 import VideoCallIcon from '@mui/icons-material/VideoCall';

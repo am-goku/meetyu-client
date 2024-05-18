@@ -12,13 +12,13 @@ const style = {
   }
 }
 
-function BoxHeader({user, setInfo}) {
+function BoxHeader({room, setInfo}) {
 
   return (
     <div className='w-full border-b-2 h-20 flex items-center gap-5 p-3 pr-5'>
-        <div style={style.profilePic(user?.profilePic)} className={`${styles.profilePic}  w-12 h-12 rounded-full`} />
+        <div style={style.profilePic(room?.icon || room?.users[0]?.profilePic)} className={`${styles.profilePic}  w-12 h-12 rounded-full`} />
         <div className='flex flex-col'>
-          <strong className='font-semibold text-2xl font-sairaConte'>{user?.name}</strong>
+          <strong className='font-semibold text-2xl font-sairaConte'>{room?.room_name || room?.users[0]?.name}</strong>
           <div className='flex items-center gap-2'>
             <span className='w-2 h-2 bg-green-400 rounded-full' />
             <p className='font-sairaConte text-sm'>Online</p>

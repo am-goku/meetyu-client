@@ -4,6 +4,9 @@ import React from 'react'
 import UserList from '../../components/chat/users/UserList'
 import ChatBox from '../../components/chat/message/ChatBox'
 import { useSocket } from '@/context/socket/SocketProvider'
+import { fetchChatRooms } from '@/services/api/methods/chat'
+import { useDispatch } from 'react-redux'
+import { clearRoom, setChatRooms } from '@/utils/features/userSlice'
 
 const users = [
   {
@@ -43,17 +46,24 @@ function Chat() {
 
   const [selectedUser, setSelectedUser] = React.useState(null)
 
-  const socket = useSocket()
+  const dispatch = useDispatch()
 
   const switchUser = (usr) => {
     setSelectedUser(usr)
   }
 
   React.useEffect(() => {
-    socket?.on('blocked', () => {
-      console.log("Block event excecuted")
+    fetchChatRooms().then((response) => {
+      const rooms = response.rooms;
+      dispatch(setChatRooms(rooms));
+      console.log("chatRooms: ", rooms);
     })
-  })
+
+
+    return () => {
+      dispatch(clearRoom())
+    }
+  }, [])
 
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -71,7 +81,7 @@ function Chat() {
           <UserList users={users} setSelectedUser={switchUser} isOpen={isOpen} toggleDrawer={toggleDrawer} />
         </div>
 
-        <ChatBox user={selectedUser} />
+        <ChatBox />
 
       </div>
     </>

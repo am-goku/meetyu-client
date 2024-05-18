@@ -83,3 +83,17 @@ export const get_requests = () => {
         })
     })
 }
+
+
+export const get_friends = () => {
+    return new Promise((resolve, reject) => {
+        const url = user_routes.get_friends;
+        const method = "GET";
+
+        apiCall(method, url).then((response) => {
+            resolve(response);
+        }).catch((error) => {
+            reject(error);
+        })
+    })
+}
