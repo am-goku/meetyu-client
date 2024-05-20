@@ -5,17 +5,13 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import style from "./styles/UserList.module.css"
 import { get_friends } from '@/services/api/methods/user';
-import { fetchChatRooms } from '@/services/api/methods/chat';
-import { useAppSelector } from '@/utils/store';
 
 const MessageDrawer = React.lazy(() => import("./MessageDrawer"));
 const FriendsDrawer = React.lazy(() => import("./FriendsDrawer"));
 
-function UserList({ users, setSelectedUser, isOpen, toggleDrawer }) {
+function UserList({ isOpen, toggleDrawer }) {
 
   const [friends, setFriends] = useState([]);
-
-  const rooms = useAppSelector(state => state.userReducer?.chatRooms)
 
   useEffect(() => {
     get_friends().then((data) => {
@@ -23,10 +19,6 @@ function UserList({ users, setSelectedUser, isOpen, toggleDrawer }) {
       setFriends(data?.friends)
     })
   }, [])
-
-
-
-
 
 
   return (
@@ -38,9 +30,9 @@ function UserList({ users, setSelectedUser, isOpen, toggleDrawer }) {
       </div>
 
       {
-        !isOpen ? <MessageDrawer rooms={rooms} style={style} setSelectedUser={setSelectedUser} />
+        !isOpen ? <MessageDrawer style={style} />
           :
-          <FriendsDrawer users={friends} style={style} setSelectedUser={setSelectedUser} />
+          <FriendsDrawer users={friends} style={style} />
       }
 
     </div>

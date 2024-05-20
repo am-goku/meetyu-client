@@ -5,6 +5,8 @@ import React from 'react'
 import styles from './styles/SingleUser.module.css'
 import { useDispatch } from 'react-redux'
 import { setRoom } from '@/utils/features/userSlice'
+import { useAppSelector } from '@/utils/store'
+import { useSocket } from '@/context/socket/SocketProvider'
 
 
 const style = {
@@ -16,18 +18,11 @@ const style = {
 }
 
 
-function SingleUser({room, setSelectedUser, key}) {
-  
-  const dispatch = useDispatch()
-  
-  const selectRoom = () => {
-    setSelectedUser(room?.users[0])
-    dispatch(setRoom(room))
-  }
+function SingleUser({room, key, selectRoom}) {
 
 
   return (
-    <div key={key} onClick={selectRoom} className='bg-slate-200 dark:bg-blue-950 w-full flex items-center p-2 gap-3 rounded border border-gray-500 cursor-pointer'>
+    <div key={key} onClick={() => selectRoom(room)} className='bg-slate-200 dark:bg-blue-950 w-full flex items-center p-2 gap-3 rounded border border-gray-500 cursor-pointer'>
         <div style={style.profilePic(room?.users[0]?.profilePic)} className={`${styles.profilePic} w-12 h-12 rounded-full border border-black relative justify-center items-center flex`}>
             <div className='w-3 h-3 bg-green-500 rounded-full absolute bottom-0 right-0' />
         </div>

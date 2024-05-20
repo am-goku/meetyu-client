@@ -58,9 +58,8 @@ function TypeBox({sendMessage}) {
 
     const handleMessage = () => {
         const text = textRef.current.value;
-
         if (text) {
-            sendMessage(text)
+            sendMessage({message: text, type: 'text'})
             textRef.current.value = ''
         }
     }

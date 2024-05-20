@@ -19,8 +19,8 @@ function Login({setSignup, handleSignin}) {
       <div className="container flex-1 anim">
           <div className="heading">Sign In</div>
           <div className="form">
-              <input onChange={(e) => setEmail(e.target.value)} required="" className="input" type="email" name="email" id="email" placeholder="E-mail" />
-              <input onChange={(e) => setPassword(e.target.value)} required="" className="input" type="password" name="password" id="password" placeholder="Password" />
+              <input onChange={(e) => setEmail(e.target.value)} required="" className="input text-black" type="email" name="email" id="email" placeholder="E-mail" />
+              <input onChange={(e) => setPassword(e.target.value)} required="" className="input text-black" type="password" name="password" id="password" placeholder="Password" />
               <span className="forgot-password"><a href="#">Forgot Password ?</a></span>
               <span className="forgot-password cursor-pointer"><a onClick={() => setSignup(true)}>New here ?</a></span>
               {error && <span className="forgot-password text-red-500"><p>{error}</p></span>}

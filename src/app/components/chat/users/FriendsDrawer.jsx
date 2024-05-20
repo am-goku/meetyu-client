@@ -4,7 +4,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 
-function FriendsDrawer({ users, setSelectedUser, style }) {
+function FriendsDrawer({ users, style }) {
 
     const dispatch = useDispatch()
 

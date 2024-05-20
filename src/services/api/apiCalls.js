@@ -23,10 +23,10 @@ const apiCall = async (method, url, data) => {
                 break
         }
 
-        if(response) return Promise.resolve(response.data);
+        if(response) return Promise.resolve(response?.data);
 
     } catch (error) {
-        return Promise.reject(error?.response.data);
+        return Promise.reject(error?.response?.data || error);
     }
 }
 

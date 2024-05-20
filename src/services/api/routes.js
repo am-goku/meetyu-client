@@ -39,3 +39,10 @@ export const chat_routes = {
         change_owner: (roomId, adminId) => `/chat/change-owner/${roomId}/${adminId}`
     }
 }
+
+
+export const messageRoutes = {
+    send: (roomId) => `/message/send/${roomId}`,
+    delete: (messageId) => `/message/delete/${messageId}`,
+    fetch: (roomId) => `/message/fetch/${roomId}`
+}

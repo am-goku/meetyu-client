@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     chatRooms: [],
@@ -37,10 +37,7 @@ export const user = createSlice({
         },
 
         setRoom: (state, action) => {
-            return {
-                chatRooms: state.chatRooms,
-                selectedRoom: action.payload,
-            }
+            state.selectedRoom = action.payload;
         }
     }
 })

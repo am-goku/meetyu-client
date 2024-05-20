@@ -49,7 +49,7 @@ function page() {
             :
             <>
               <div className='icnContainer mainContainer hidden md:flex filter dark:invert dark:border dark:border-white' />
-              <Login setSignup={setSignup} handleSignin={handleSingin} />
+              <Lo gin setSignup={setSignup} handleSignin={handleSingin} />
             </>
         }
       </div>
