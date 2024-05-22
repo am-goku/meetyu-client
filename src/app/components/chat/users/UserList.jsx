@@ -9,7 +9,7 @@ import { get_friends } from '@/services/api/methods/user';
 const MessageDrawer = React.lazy(() => import("./MessageDrawer"));
 const FriendsDrawer = React.lazy(() => import("./FriendsDrawer"));
 
-function UserList({ isOpen, toggleDrawer }) {
+function UserList({ isOpen, toggleDrawer, setSelectedRoom }) {
 
   const [friends, setFriends] = useState([]);
 
@@ -30,7 +30,7 @@ function UserList({ isOpen, toggleDrawer }) {
       </div>
 
       {
-        !isOpen ? <MessageDrawer style={style} />
+        !isOpen ? <MessageDrawer style={style} setSelectedRoom={setSelectedRoom} />
           :
           <FriendsDrawer users={friends} style={style} />
       }

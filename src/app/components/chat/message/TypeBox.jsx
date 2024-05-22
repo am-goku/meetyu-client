@@ -8,8 +8,10 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import MicIcon from '@mui/icons-material/Mic';
+import { useSocket } from '@/context/socket/SocketProvider';
+import { newMessage } from '@/services/api/methods/chat';
 
-function TypeBox({sendMessage}) {
+function TypeBox({selectedRoom}) {
 
     const imgRef = React.useRef(null);
     const vidRef = React.useRef(null);
@@ -17,6 +19,8 @@ function TypeBox({sendMessage}) {
 
     const [selectedImage, setSelectedImage] = React.useState(null)
     const [selectedVideo, setSelectedVideo] = React.useState(null)
+
+    const socket = useSocket()
 
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -56,30 +60,41 @@ function TypeBox({sendMessage}) {
 
 
 
-    const handleMessage = () => {
+    const handleMessage = React.useCallback((roomId) => {
+
         const text = textRef.current.value;
-        if (text) {
-            sendMessage({message: text, type: 'text'})
-            textRef.current.value = ''
+
+        if(text) {
+            newMessage(text, 'text', roomId).then((msg) => {
+                socket.emit('send-message', {message: msg.data, roomId})
+                textRef.current.value = ''
+            }).catch((err) => {
+                console.log("Error sending messages", err);
+            })
         }
-    }
+
+    }, [selectedRoom])
 
 
 
+//@TODO:BUG: This function passes the old selectedRoom state
+    // const enterPress = React.useCallback(
+    //     (e) => {
+    //         if (e.key === 'Enter') {
+    //             console.log('Enter key was pressed!');
+    //             handleMessage(selectedRoom?._id)
+    //         }
+    //     },
+    //     [selectedRoom]
+    // )
 
-    const enterPress = (e) => {
-        if (e.key === 'Enter') {
-            console.log('Enter key was pressed!');
-            handleMessage()
-        }
-    }
+    // React.useEffect(() => {
+    //     document.addEventListener("keypress", enterPress)
 
-    React.useEffect(() => {
-        document.addEventListener("keypress", enterPress)
-
-        return () => document.removeEventListener("keypress", enterPress)
-    }, [document])
+    //     return () => document.removeEventListener("keypress", enterPress)
+    // }, [document])
     
+
 
 
 
@@ -116,7 +131,7 @@ function TypeBox({sendMessage}) {
                 </div>
                 <MicIcon className='cursor-pointer' />
                 <input ref={textRef} placeholder="Message..." type="text" id="messageInput" className='flex-1 border border-black' />
-                <button onClick={handleMessage} id="sendButton" className='ml-auto'>
+                <button onClick={()=> handleMessage(selectedRoom?._id)} id="sendButton" className='ml-auto'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
                         <path
                             fill="none"

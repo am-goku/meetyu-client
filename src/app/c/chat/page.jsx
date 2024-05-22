@@ -4,31 +4,32 @@ import React from 'react'
 import UserList from '../../components/chat/users/UserList'
 import ChatBox from '../../components/chat/message/ChatBox'
 import { fetchChatRooms } from '@/services/api/methods/chat'
-import { useDispatch } from 'react-redux'
-import { clearRoom, setChatRooms } from '@/utils/features/userSlice'
+import { useChatRoom } from '@/context/socket/ChatContext'
 
 
 
 function Chat() {
 
-  const dispatch = useDispatch()
+  const [isOpen, setIsOpen] = React.useState(false);
 
+  const [selectedRoom, setSelectedRoom] = React.useState(null);
+
+  const { setChatRooms } = useChatRoom()
 
   React.useEffect(() => {
     fetchChatRooms().then((response) => {
       const rooms = response.rooms;
-      dispatch(setChatRooms(rooms));
+      setChatRooms(rooms)
       console.log("chatRooms: ", rooms);
     })
 
 
     return () => {
-      dispatch(clearRoom())
+      setChatRooms([]);
     }
   }, [])
 
 
-  const [isOpen, setIsOpen] = React.useState(false);
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -38,13 +39,10 @@ function Chat() {
   return (
     <>
       <div className="p-2 h-full overflow-hidden flex gap-5">
-
         <div className='relative'>
-          <UserList isOpen={isOpen} toggleDrawer={toggleDrawer} />
+          <UserList isOpen={isOpen} toggleDrawer={toggleDrawer} setSelectedRoom={setSelectedRoom} />
         </div>
-
-        <ChatBox />
-
+        <ChatBox selectedRoom={selectedRoom} />
       </div>
     </>
   )
