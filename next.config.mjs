@@ -4,7 +4,7 @@ const nextConfig = {
     port: 3021,
   },
   images: {
-    domains: ["as1.ftcdn.net", "images.unsplash.com", "expertphotography.b-cdn.net", "i.pinimg.com"],
+    domains: ["cdn-icons-png.flaticon.com", "as1.ftcdn.net", "images.unsplash.com", "expertphotography.b-cdn.net", "i.pinimg.com", ],
   },
   env: {
     SOCKET_URL: process.env.SOCKET_URL,

@@ -18,7 +18,7 @@ function UserCard({ user }) {
     <div className={`flex justify-center border p-3  ${theme==='dark'? 'bg-blue-950 text-white': 'bg-blue-200 text-black'}`}>
       <div className="flex flex-col gap-10 select-none">
         <div className="p-3 relative w-64 h-96">
-          <Image alt='Error loading' priority='high' src={"https://expertphotography.b-cdn.net/wp-content/uploads/2019/04/female-face-girl-posing-outdoors-in-natural-light.jpg"} fill={true} sizes='100, 100' />
+          <Image alt='Error loading' priority='high' src={user?.profile_pic} fill={true} sizes='100, 100' />
         </div>
         <ExploreOptions userId={user?._id} />
       </div>

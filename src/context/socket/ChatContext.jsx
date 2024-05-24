@@ -1,6 +1,7 @@
 'use client'
 
-import { useContext, createContext, useState } from 'react'
+import { useContext, createContext, useState, useEffect } from 'react'
+import { useSocket } from './SocketProvider'
 
 const MessageContext = createContext()
 export const useChatRoom = () => useContext(MessageContext)
@@ -10,6 +11,7 @@ function ChatContext({ children }) {
 
     const [chatRooms, setChatRooms] = useState([])
 
+    const socket = useSocket();
 
     const clearRooms = () => {
         setChatRooms([])
@@ -21,6 +23,14 @@ function ChatContext({ children }) {
 
         setChatRooms([room, ...updatedRooms])
     }
+
+    //TODO: Not working properly
+    // useEffect(() => {
+    //     socket?.on('new-message', ({room}) => {
+    //         console.log("New message", room);
+    //         updateRooms(room);
+    //     })
+    // }, [])
 
 
     return (

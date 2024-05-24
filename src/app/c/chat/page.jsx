@@ -14,13 +14,18 @@ function Chat() {
 
   const [selectedRoom, setSelectedRoom] = React.useState(null);
 
+  const [loading, setLoading] = React.useState(false);
+
   const { setChatRooms } = useChatRoom()
 
   React.useEffect(() => {
+    setLoading(true)
     fetchChatRooms().then((response) => {
       const rooms = response.rooms;
       setChatRooms(rooms)
       console.log("chatRooms: ", rooms);
+    }).finally(() => {
+      setLoading(false)
     })
 
 
@@ -38,12 +43,19 @@ function Chat() {
 
   return (
     <>
-      <div className="p-2 h-full overflow-hidden flex gap-5">
-        <div className='relative'>
-          <UserList isOpen={isOpen} toggleDrawer={toggleDrawer} setSelectedRoom={setSelectedRoom} />
-        </div>
-        <ChatBox selectedRoom={selectedRoom} />
-      </div>
+      {
+        loading ?
+          <div className='w-full h-full text-white bg-black text-center justify-center items-center flex'>
+            <p className='animate-pulse font-semibold text-xl'>Loading...</p>
+          </div>
+          :
+          <div className="p-2 h-full overflow-hidden flex gap-5">
+            <div className='relative'>
+              <UserList isOpen={isOpen} toggleDrawer={toggleDrawer} setSelectedRoom={setSelectedRoom} />
+            </div>
+            <ChatBox selectedRoom={selectedRoom} />
+          </div>
+      }
     </>
   )
 }

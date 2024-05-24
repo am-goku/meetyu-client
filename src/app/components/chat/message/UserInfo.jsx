@@ -16,7 +16,7 @@ function UserInfo({room, setInfo}) {
 
     return (
         <div className='flex-1 flex flex-col items-center py-10 gap-5 relative'>
-            <div className='w-36 h-36 rounded-full bg-cover bg-no-repeat bg-center shadow-lg border border-blue-900' style={styles.profilePic(room?.icon || room?.users[0]?.profilePic)} />
+            <div className='w-36 h-36 rounded-full bg-cover bg-no-repeat bg-center shadow-lg border border-blue-900' style={styles.profilePic(room?.icon || room?.users[0]?.profile_pic)} />
             <div className='flex flex-col justify-center items-center text-xl'>
                 <strong>{room?.room_name || room?.users[0]?.name}</strong>
                 <div className='flex items-center gap-2'>

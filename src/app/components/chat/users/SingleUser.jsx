@@ -3,8 +3,6 @@
 import React from 'react'
 
 import styles from './styles/SingleUser.module.css'
-import { useChatRoom } from '@/context/socket/ChatContext'
-import { useSocket } from '@/context/socket/SocketProvider'
 
 
 const style = {
@@ -18,12 +16,9 @@ const style = {
 
 function SingleUser({ room, setSelectedRoom }) {
 
-  const { changeRoom } = useChatRoom();
-
-
   return (
     <div onClick={()=>setSelectedRoom(room)} className='bg-slate-200 dark:bg-blue-950 w-full flex items-center p-2 gap-3 rounded border border-gray-500 cursor-pointer'>
-      <div style={style.profilePic(room?.users[0]?.profilePic)} className={`${styles.profilePic} w-12 h-12 rounded-full border border-black relative justify-center items-center flex`}>
+      <div style={style.profilePic(room?.users[0]?.profile_pic)} className={`${styles.profilePic} w-12 h-12 rounded-full border border-black relative justify-center items-center flex`}>
         <div className='w-3 h-3 bg-green-500 rounded-full absolute bottom-0 right-0' />
       </div>
 

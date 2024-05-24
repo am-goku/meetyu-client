@@ -15,7 +15,7 @@ function UserPoster({ user, key }) {
         <>
             <div onClick={handleOpen} key={key} className="flex flex-col rounded p-2 dark:bg-blue-950  gap-3 text-center justify-center w-fit h-fit cursor-pointer dark:hover:bg-opacity-55">
                 <div className="p-3 relative w-52 h-72">
-                    <Image alt='Error loading' priority='high' src={"https://expertphotography.b-cdn.net/wp-content/uploads/2019/04/female-face-girl-posing-outdoors-in-natural-light.jpg"} fill={true} sizes='100, 100' />
+                    <Image alt='Error loading' priority='high' src={user?.profile_pic} fill={true} sizes='100, 100' />
                 </div>
                 <span className="flex px-3">
                     <h1 className="font-semibold">{user?.name}</h1>
