@@ -51,7 +51,7 @@ function Chat() {
           :
           <div className="p-2 h-full overflow-hidden flex gap-5">
             <div className='relative'>
-              <UserList isOpen={isOpen} toggleDrawer={toggleDrawer} setSelectedRoom={setSelectedRoom} />
+              <UserList isOpen={isOpen} toggleDrawer={toggleDrawer} setSelectedRoom={setSelectedRoom} selectedRoom={selectedRoom} />
             </div>
             <ChatBox selectedRoom={selectedRoom} />
           </div>

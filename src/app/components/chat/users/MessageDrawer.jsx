@@ -6,7 +6,7 @@ import styles from './styles/SingleUser.module.css'
 import { useChatRoom } from '@/context/socket/ChatContext';
 
 
-function MessageDrawer({setSelectedRoom}) {
+function MessageDrawer({setSelectedRoom, selectedRoom}) {
 
     const { chatRooms } = useChatRoom()
 
@@ -14,7 +14,7 @@ function MessageDrawer({setSelectedRoom}) {
         <div className={`flex-1 overflow-auto flex flex-col gap-2 ${styles.messageContainer}`}>
             {
                 chatRooms?.map((room) => {
-                    return <SingleUser setSelectedRoom={setSelectedRoom} key={room._id} room={room} />
+                    return <SingleUser setSelectedRoom={setSelectedRoom} key={room._id} room={room} selectedRoom={selectedRoom} />
                 })
             }
         </div>

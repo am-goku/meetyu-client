@@ -18,23 +18,29 @@ function ChatContext({ children }) {
         setSelectedRoom(null)
     }
 
-    const updateRooms = (room) => {
-        const updatedRooms = chatRooms.filter(r => r._id !== room._id);
-
-        setChatRooms([room, ...updatedRooms])
-    }
+    
 
     //TODO: Not working properly
-    // useEffect(() => {
-    //     socket?.on('new-message', ({room}) => {
-    //         console.log("New message", room);
-    //         updateRooms(room);
-    //     })
-    // }, [])
+    useEffect(() => {
+        const updateRooms = (room) => {
+            if(!room) return setChatRooms([]);
+
+
+            const updatedRooms = chatRooms.filter(r => r._id !== room._id);
+            setChatRooms([room, ...updatedRooms])
+        }
+
+
+        socket?.on('new-message', ({room}) => {
+            updateRooms(room);
+        })
+
+        
+    }, [socket, chatRooms])
 
 
     return (
-        <MessageContext.Provider value={{ chatRooms, setChatRooms, clearRooms, updateRooms }}>
+        <MessageContext.Provider value={{ chatRooms, setChatRooms, clearRooms }}>
             {children}
         </MessageContext.Provider>
     )
